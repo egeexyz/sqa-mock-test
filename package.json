@@ -1,0 +1,26 @@
+{
+  "name": "qa-challenge-paylocity",
+  "version": "1.0.0",
+  "description": "Paylocity's QA Challenge Solution",
+  "main": "index.js",
+  "scripts": {
+    "start": "node node_modules/.bin/http-server ./public",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/egee-irl/qa-challenge-paylocity.git"
+  },
+  "author": "Brian",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/egee-irl/qa-challenge-paylocity/issues"
+  },
+  "homepage": "https://github.com/egee-irl/qa-challenge-paylocity#readme",
+  "dependencies": {
+    "http-server": "^0.12.1"
+  },
+  "devDependencies": {
+    "mocha": "^7.0.1"
+  }
+}
