@@ -4,6 +4,6 @@ node_js:
 cache: npm
 before_script:
   - npm start &
-  - sleep 1
+  - sleep 1 # This is to give node-server time to spin up
 script:
   - npm test
