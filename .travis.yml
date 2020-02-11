@@ -5,6 +5,5 @@ cache: npm
 before_script:
   - npm start &
   - sleep 1
-  - curl localhost:8080
 script:
   - npm test
