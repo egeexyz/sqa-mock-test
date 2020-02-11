@@ -21,6 +21,7 @@
     "http-server": "^0.12.1"
   },
   "devDependencies": {
-    "mocha": "^7.0.1"
+    "mocha": "^7.0.1",
+    "zombie": "^6.1.4"
   }
 }
