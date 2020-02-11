@@ -4,6 +4,7 @@ node_js:
 cache: npm
 before_script:
   - npm start &
-  - curl localhost
+  - sleep 1
+  - curl localhost:8080
 script:
   - npm test
