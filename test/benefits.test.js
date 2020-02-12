@@ -62,7 +62,7 @@ describe('Calculate Standard Benefits', () => {
   it('should update correctly when adding dependents', async () => {
     employee.firstName = 'Increasing'
     employee.lastName = 'Dependents'
-    employee.dependants = '2'
+    employee.dependants = '0'
 
     await AddEmployee(browser, employee)
     await calculateBenefitCost(employee)
