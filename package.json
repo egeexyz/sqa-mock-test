@@ -1,7 +1,7 @@
 {
-  "name": "qa-challenge-paylocity",
+  "name": "sqa-mock-test",
   "version": "1.0.0",
-  "description": "Paylocity's QA Challenge Solution",
+  "description": "A mock test solution to sample SQA skillset",
   "main": "index.js",
   "scripts": {
     "start": "node node_modules/.bin/http-server ./public",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/egee-irl/qa-challenge-paylocity.git"
+    "url": "git+https://github.com/egee-irl/sqa-mock-test.git"
   },
   "author": "Brian",
   "license": "",
   "bugs": {
-    "url": "https://github.com/egee-irl/qa-challenge-paylocity/issues"
+    "url": "https://github.com/egee-irl/sqa-mock-test/issues"
   },
-  "homepage": "https://github.com/egee-irl/qa-challenge-paylocity#readme",
+  "homepage": "https://github.com/egee-irl/sqa-mock-test#readme",
   "dependencies": {
     "http-server": "^0.12.1"
   },
