@@ -1,4 +1,4 @@
-# sqa-mock-test
+# sqa-mock-test [![Build Status](https://travis-ci.org/egee-irl/sqa-mock-test.svg?branch=master)](https://travis-ci.org/egee-irl/sqa-mock-test)
 
 A mock test solution to sample SQA skillset.
 
