@@ -1,3 +1,3 @@
-# qa-challenge-paylocity
+# sqa-mock-test
 
-Paylocity's QA Challenge Solution
+A mock test solution to sample SQA skillset
