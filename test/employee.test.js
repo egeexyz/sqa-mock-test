@@ -89,6 +89,7 @@ describe('Edit Employee', () => {
     await browser.assert.text('#employee-table > tbody > tr td:nth-child(5)', employee.dependants)
   })
   it('Should edit new employee', async () => {
+    console.warn('This test should be deprecated or updated once canned-data is removed')
     employee.firstName = 'Burger'
     employee.lastName = 'Ville'
     employee.dependants = '2'
