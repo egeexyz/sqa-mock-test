@@ -20,22 +20,28 @@ describe('Add Employee', () => {
     employee.dependants = '2'
 
     await browser.assert.elements('.table-striped tbody tr', 1)
+
     await AddEmployee(browser, employee)
+
     browser.assert.text('#employee-table > tbody:nth-child(2) > tr:nth-child(2) > td:nth-child(2)', employee.firstName)
     browser.assert.text('#employee-table > tbody:nth-child(2) > tr:nth-child(2) > td:nth-child(3)', employee.lastName)
-    await browser.assert.elements('.glyphicon-wrench', 2)
+    browser.assert.elements('.glyphicon-wrench', 2)
   })
   it('Should not allow empty employee', async () => {
     await browser.assert.elements('.glyphicon-wrench', 1)
+
     await AddEmployee(browser, employee)
+
     browser.assert.elements('.glyphicon-wrench', 1)
   })
   it('Should not add partially filled-out employee', async () => {
     employee.firstName = 'testering'
 
     await browser.assert.elements('.glyphicon-wrench', 1)
+
     await AddEmployee(browser, employee)
-    await browser.assert.elements('.glyphicon-wrench', 1)
+
+    browser.assert.elements('.glyphicon-wrench', 1)
   })
   it('Should not allow duplicate employees', async () => {
     employee.firstName = 'Zack'
@@ -43,8 +49,10 @@ describe('Add Employee', () => {
     employee.dependants = 1
 
     await browser.assert.elements('.table-striped tbody tr', 1)
+
     await AddEmployee(browser, employee)
-    await browser.assert.elements('.glyphicon-wrench', 1)
+
+    browser.assert.elements('.glyphicon-wrench', 1)
   })
   it('Should not allow letters as dependants', async () => {
     employee.firstName = 'Johnny'
@@ -52,8 +60,10 @@ describe('Add Employee', () => {
     employee.dependants = 'a'
 
     await browser.assert.elements('.table-striped tbody tr', 1)
+
     await AddEmployee(browser, employee)
-    await browser.assert.elements('.glyphicon-wrench', 1)
+
+    browser.assert.elements('.glyphicon-wrench', 1)
   })
 })
 
@@ -84,9 +94,9 @@ describe('Edit Employee', () => {
     await FillEmployeeForm(browser, employee)
     await browser.pressButton('Submit')
 
-    await browser.assert.text('#employee-table > tbody > tr td:nth-child(2)', employee.firstName)
-    await browser.assert.text('#employee-table > tbody > tr td:nth-child(3)', employee.lastName)
-    await browser.assert.text('#employee-table > tbody > tr td:nth-child(5)', employee.dependants)
+    browser.assert.text('#employee-table > tbody > tr td:nth-child(2)', employee.firstName)
+    browser.assert.text('#employee-table > tbody > tr td:nth-child(3)', employee.lastName)
+    browser.assert.text('#employee-table > tbody > tr td:nth-child(5)', employee.dependants)
   })
   it('Should edit new employee', async () => {
     console.warn('This test should be deprecated or updated once canned-data is removed')
@@ -108,9 +118,9 @@ describe('Edit Employee', () => {
     await FillEmployeeForm(browser, employee)
     await browser.pressButton('Submit')
 
-    await browser.assert.text('#employee-table > tbody > tr:nth-child(2) td:nth-child(2)', employee.firstName)
-    await browser.assert.text('#employee-table > tbody > tr:nth-child(2) td:nth-child(3)', employee.lastName)
-    await browser.assert.text('#employee-table > tbody > tr:nth-child(2) td:nth-child(5)', employee.dependants)
+    browser.assert.text('#employee-table > tbody > tr:nth-child(2) td:nth-child(2)', employee.firstName)
+    browser.assert.text('#employee-table > tbody > tr:nth-child(2) td:nth-child(3)', employee.lastName)
+    browser.assert.text('#employee-table > tbody > tr:nth-child(2) td:nth-child(5)', employee.dependants)
   })
 })
 
@@ -130,8 +140,11 @@ describe('Remove Employee', () => {
     employee.dependants = '3'
 
     await AddEmployee(browser, employee)
+
     await browser.assert.text('#employee-table > tbody:nth-child(2) > tr:nth-child(2) > td:nth-child(2)', employee.firstName)
+
     await browser.click('#employee-table > tbody:nth-child(2) > tr:nth-child(2) > td:nth-child(9) >span#btnDelete')
+
     browser.assert.elements('.glyphicon-wrench', 1)
   })
 })
