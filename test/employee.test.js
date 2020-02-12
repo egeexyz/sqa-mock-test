@@ -22,20 +22,20 @@ describe('Add Employee', () => {
     await browser.assert.elements('.table-striped tbody tr', 1)
     await AddEmployee(browser, employee)
     browser.assert.text('#employee-table > tbody:nth-child(2) > tr:nth-child(2) > td:nth-child(2)', employee.firstName)
-    browser.assert.text('#employee-table > tbody:nth-child(2) > tr:nth-child(2) > td:nth-child(2)', employee.lastName)
+    browser.assert.text('#employee-table > tbody:nth-child(2) > tr:nth-child(2) > td:nth-child(3)', employee.lastName)
     await browser.assert.elements('.glyphicon-wrench', 2)
   })
   it('Should not allow empty employee', async () => {
     await browser.assert.elements('.glyphicon-wrench', 1)
     await AddEmployee(browser, employee)
-    // browser.assert.elements('.glyphicon-wrench', 1)
+    browser.assert.elements('.glyphicon-wrench', 1)
   })
   it('Should not add partially filled-out employee', async () => {
     employee.firstName = 'testering'
 
     await browser.assert.elements('.glyphicon-wrench', 1)
     await AddEmployee(browser, employee)
-    // await browser.assert.elements('.glyphicon-wrench', 1)
+    await browser.assert.elements('.glyphicon-wrench', 1)
   })
   it('Should not allow duplicate employees', async () => {
     employee.firstName = 'Zack'
@@ -44,7 +44,7 @@ describe('Add Employee', () => {
 
     await browser.assert.elements('.table-striped tbody tr', 1)
     await AddEmployee(browser, employee)
-    // await browser.assert.elements('.glyphicon-wrench', 1)
+    await browser.assert.elements('.glyphicon-wrench', 1)
   })
   it('Should not allow letters as dependants', async () => {
     employee.firstName = 'Johnny'
@@ -53,7 +53,7 @@ describe('Add Employee', () => {
 
     await browser.assert.elements('.table-striped tbody tr', 1)
     await AddEmployee(browser, employee)
-    // await browser.assert.elements('.glyphicon-wrench', 1)
+    await browser.assert.elements('.glyphicon-wrench', 1)
   })
 })
 
@@ -130,8 +130,8 @@ describe('Remove Employee', () => {
 
     await AddEmployee(browser, employee)
     await browser.assert.text('#employee-table > tbody:nth-child(2) > tr:nth-child(2) > td:nth-child(2)', employee.firstName)
-    // await browser.click('#employee-table > tbody:nth-child(2) > tr:nth-child(2) > td:nth-child(9) >span#btnDelete')
-    // browser.assert.elements('.glyphicon-wrench', 1)
+    await browser.click('#employee-table > tbody:nth-child(2) > tr:nth-child(2) > td:nth-child(9) >span#btnDelete')
+    browser.assert.elements('.glyphicon-wrench', 1)
   })
 })
 
