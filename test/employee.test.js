@@ -25,15 +25,6 @@ Browser.localhost('localhost', 8080)
 //     browser.assert.text('#employee-table > tbody:nth-child(2) > tr:nth-child(2) > td:nth-child(2)', employee.lastName)
 //     await browser.assert.elements('.glyphicon-wrench', 2)
 //   })
-//   it('Should add correctly calculate discounts employee', async () => {
-//     employee.firstName = 'Test'
-//     employee.lastName = 'Ering'
-//     employee.dependants = '2'
-
-//     await browser.assert.elements('.table-striped tbody tr', 1)
-//     await AddEmployee(browser, employee)
-//     await browser.assert.elements('.glyphicon-wrench', 2)
-//   })
 //   it('Should not allow empty employee', async () => {
 //     await browser.assert.elements('.glyphicon-wrench', 1)
 //     await AddEmployee(browser, employee)
@@ -64,84 +55,63 @@ Browser.localhost('localhost', 8080)
 //     await AddEmployee(browser, employee)
 //     // await browser.assert.elements('.glyphicon-wrench', 1)
 //   })
-
-//   // Business Requirements Below
-
-//   it('Should not allow employee first names which start with lowercase a', async () => {
-//     employee.firstName = 'aaron'
-//     employee.lastName = 'Smith'
-//     employee.dependants = '1'
-
-//     await browser.assert.elements('.table-striped tbody tr', 1)
-//     await AddEmployee(browser, employee)
-//     // await browser.assert.elements('.glyphicon-wrench', 1)
-//   })
-//   it('Should not allow employee first names which start with uppercase A', async () => {
-//     employee.firstName = 'Aaron'
-//     employee.lastName = 'Smith'
-//     employee.dependants = '1'
-
-//     await browser.assert.elements('.table-striped tbody tr', 1)
-//     await AddEmployee(browser, employee)
-//     // await browser.assert.elements('.glyphicon-wrench', 1)
-//   })
 // })
 
-describe('Edit Employee', () => {
-  const browser = new Browser()
-  beforeEach(async () => {
-    employee = {
-      firstName: '',
-      lastName: '',
-      dependants: ''
-    }
-    await Login(browser)
-  })
-  it('Should edit existing employee', async () => {
-    employee.firstName = 'Zack'
-    employee.lastName = 'Siler'
-    employee.dependants = '1'
+// describe('Edit Employee', () => {
+//   const browser = new Browser()
+//   beforeEach(async () => {
+//     employee = {
+//       firstName: '',
+//       lastName: '',
+//       dependants: ''
+//     }
+//     await Login(browser)
+//   })
+//   it('Should edit existing employee', async () => {
+//     employee.firstName = 'Zack'
+//     employee.lastName = 'Siler'
+//     employee.dependants = '1'
 
-    await browser.assert.text('#employee-table > tbody > tr td:nth-child(2)', employee.firstName)
-    await browser.assert.text('#employee-table > tbody > tr td:nth-child(3)', employee.lastName)
-    await browser.assert.text('#employee-table > tbody > tr td:nth-child(5)', employee.dependants)
+//     await browser.assert.text('#employee-table > tbody > tr td:nth-child(2)', employee.firstName)
+//     await browser.assert.text('#employee-table > tbody > tr td:nth-child(3)', employee.lastName)
+//     await browser.assert.text('#employee-table > tbody > tr td:nth-child(5)', employee.dependants)
 
-    employee.firstName = 'Zach'
-    employee.lastName = 'Sillier'
-    employee.dependants = '2'
+//     employee.firstName = 'Zach'
+//     employee.lastName = 'Sillier'
+//     employee.dependants = '2'
 
-    await browser.click('#employee-table > tbody > tr td:nth-child(9) > span#btnEdit')
-    await FillEmployeeForm(browser, employee)
-    await browser.pressButton('Submit')
+//     await browser.click('#employee-table > tbody > tr td:nth-child(9) > span#btnEdit')
+//     await FillEmployeeForm(browser, employee)
+//     await browser.pressButton('Submit')
 
-    await browser.assert.text('#employee-table > tbody > tr td:nth-child(2)', employee.firstName)
-    await browser.assert.text('#employee-table > tbody > tr td:nth-child(3)', employee.lastName)
-    await browser.assert.text('#employee-table > tbody > tr td:nth-child(5)', employee.dependants)
-  })
-  it('Should edit new employee', async () => {
-    employee.firstName = 'Burger'
-    employee.lastName = 'Ville'
-    employee.dependants = '2'
+//     await browser.assert.text('#employee-table > tbody > tr td:nth-child(2)', employee.firstName)
+//     await browser.assert.text('#employee-table > tbody > tr td:nth-child(3)', employee.lastName)
+//     await browser.assert.text('#employee-table > tbody > tr td:nth-child(5)', employee.dependants)
+//   })
+//   it('Should edit new employee', async () => {
+//     employee.firstName = 'Burger'
+//     employee.lastName = 'Ville'
+//     employee.dependants = '2'
 
-    await AddEmployee(browser, employee)
+//     await AddEmployee(browser, employee)
 
-    await browser.assert.text('#employee-table > tbody > tr:nth-child(2) td:nth-child(2)', employee.firstName)
-    await browser.assert.text('#employee-table > tbody > tr:nth-child(2) td:nth-child(3)', employee.lastName)
-    await browser.assert.text('#employee-table > tbody > tr:nth-child(2) td:nth-child(5)', employee.dependants)
+//     await browser.assert.text('#employee-table > tbody > tr:nth-child(2) td:nth-child(2)', employee.firstName)
+//     await browser.assert.text('#employee-table > tbody > tr:nth-child(2) td:nth-child(3)', employee.lastName)
+//     await browser.assert.text('#employee-table > tbody > tr:nth-child(2) td:nth-child(5)', employee.dependants)
 
-    employee.firstName = 'Five'
-    employee.lastName = 'Guys'
-    employee.dependants = '5'
+//     employee.firstName = 'Five'
+//     employee.lastName = 'Guys'
+//     employee.dependants = '5'
 
-    await browser.click('#employee-table > tbody > tr:nth-child(2) td:nth-child(9) > span#btnEdit')
-    await FillEmployeeForm(browser, employee)
-    await browser.pressButton('Submit')
+//     await browser.click('#employee-table > tbody > tr:nth-child(2) td:nth-child(9) > span#btnEdit')
+//     await FillEmployeeForm(browser, employee)
+//     await browser.pressButton('Submit')
 
-    await browser.assert.text('#employee-table > tbody > tr:nth-child(2) td:nth-child(2)', employee.firstName)
-    await browser.assert.text('#employee-table > tbody > tr:nth-child(2) td:nth-child(3)', employee.lastName)
-    await browser.assert.text('#employee-table > tbody > tr:nth-child(2) td:nth-child(5)', employee.dependants)
-  })
-})
+//     await browser.assert.text('#employee-table > tbody > tr:nth-child(2) td:nth-child(2)', employee.firstName)
+//     await browser.assert.text('#employee-table > tbody > tr:nth-child(2) td:nth-child(3)', employee.lastName)
+//     await browser.assert.text('#employee-table > tbody > tr:nth-child(2) td:nth-child(5)', employee.dependants)
+//   })
+// })
 
 // describe('Remove Employee', () => {
 //   const browser = new Browser()
