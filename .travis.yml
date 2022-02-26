@@ -1,9 +1,0 @@
-language: node_js
-node_js:
-- '12'
-cache: npm
-before_script:
-  - npm start &
-  - sleep 1 # This is to give node-server time to spin up
-script:
-  - npm test
