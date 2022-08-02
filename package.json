@@ -12,7 +12,7 @@
     "url": "git+https://github.com/egee-irl/sqa-mock-test.git"
   },
   "author": "Brian",
-  "license": "",
+  "license": "unlicense",
   "bugs": {
     "url": "https://github.com/egee-irl/sqa-mock-test/issues"
   },
